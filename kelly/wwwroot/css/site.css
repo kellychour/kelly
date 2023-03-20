@@ -94,9 +94,24 @@ body {
 .carousel-button-next:hover,
 .carousel-button-next:focus {
     color: white;
-    background-color: rgba(0,0,0.1);
+    background-color: rgba(0,0,0.2);
 }
 
+.carousel-button-prev:focus {
+    outline: 1px solid black;
+}
+
+.carousel-button-next:focus {
+    outline: 1px solid black;
+}
+
+.carousel-button-prev{
+    left: 1rem;
+}
+
+.carousel-button-next {
+    right: 1rem;
+}
 
 .topnav {
     background-color: #333;
