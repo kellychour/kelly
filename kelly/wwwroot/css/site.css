@@ -26,7 +26,8 @@ body {
     width: 90vw;
     height: 90vh;
     position: relative;
-    right: %;
+    right: 15%;
+    max-height: 600px;
 }
 
 .carousel>ul{
