@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,10 +10,7 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+
 
 
     *::before, *::after {
@@ -23,10 +22,11 @@ body {
 }
 
 .carousel {
-    width: 90vw;
-    height: 90vh;
-    position: relative;
-    right: %;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    max-height: 700px;
+    right: 0.1%;
 }
 
 .carousel>ul{
@@ -118,4 +118,5 @@ body {
     background-color: #333;
     overflow: hidden;
 }
+
 
