@@ -116,6 +116,8 @@ body {
 }
 /* end of carousel */
 
+
+/* nav bar */
 .topnav {
     background-color: #333;
     overflow: hidden;
@@ -152,3 +154,4 @@ header ul li a:hover::before
     transform: scaleX(1);
     transform-origin: left;
 }
+/* end of nav bar */
