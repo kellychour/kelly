@@ -28,6 +28,7 @@ body {
     position: relative;
     right: 15%;
    max-height: 800px;
+   
 }
 
 .carousel>ul{
@@ -155,3 +156,4 @@ header ul li a:hover::before
     transform-origin: left;
 }
 /* end of nav bar */
+
