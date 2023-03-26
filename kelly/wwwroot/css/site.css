@@ -127,7 +127,7 @@ body {
 
 .navbar-brand {
     text-decoration: none;
-    font-weight: 650;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -158,3 +158,9 @@ header ul li a:hover::before
 }
 /* end of nav bar */
 
+.contactimg {
+    position: absolute;
+    left: 0px;
+    top: 56px;
+    float: left;
+}
