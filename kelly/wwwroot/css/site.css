@@ -67,8 +67,8 @@ body {
     transform: translateY(-50%);
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
-    border-radius: .25rem;
-    padding: 0. 5rem;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
     background-color: rgba(0,0,0,.2);
    
     }
@@ -83,21 +83,23 @@ body {
     transform: translateY(-50%);
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
-    border-radius: 0.25rem;
-    padding: 0 .5rem;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
     background-color: rgba(0,0,0,.2);
 }
 
-    .carousel-button-prev:hover,
-    .carousel-button-prev:focus {
-        color: white;
-        background-color: rgba(0,0,0.1);
-    }
+.carousel-button-prev:hover,
+.carousel-button-prev:focus {
+    color: white;
+    background-color: #1a1a1a;
+    opacity: 85%;
+}
 
 .carousel-button-next:hover,
 .carousel-button-next:focus {
     color: white;
-    background-color: rgba(0,0,0.2);
+    background-color: #1a1a1a;
+    opacity: 85%; 
 }
 
 .carousel-button-prev:focus {
@@ -159,8 +161,9 @@ header ul li a:hover::before
 /* end of nav bar */
 
 .contactimg {
+    max-height: 50px;
     position: absolute;
     left: 0px;
     top: 56px;
-    float: left;
 }
+   
