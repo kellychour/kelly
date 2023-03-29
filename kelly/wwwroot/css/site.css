@@ -19,7 +19,9 @@ html {
     }
 
 body {
-    margin: 0px ;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
 }
 
 .carousel {
@@ -160,10 +162,93 @@ header ul li a:hover::before
 }
 /* end of nav bar */
 
-.contactimg {
-    max-height: 50px;
-    position: absolute;
-    left: 0px;
-    top: 56px;
+
+.contactcontainer{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 100px;
 }
-   
+
+    .contactcontainer:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('../lib/pictures/pho-6760890_1280.jpg');
+        filter: blur(2px)
+    }
+
+h2{
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+h2:after{
+    content: '';
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform: translateX(-50%);
+    height:4px;
+    width: 80px;
+    border-radius: 2px;
+    background-color:#2ecc71; 
+     
+}
+
+.field{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    outline:none;
+    border: 2px solid rgba(255, 255, 255, .5);
+    background-color: white; 
+    font-size:1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+
+}
+
+.field:hover{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.field:focus{
+    background-color: #fff;
+    border: 2px solid black;
+}
+
+.area{
+    min-height: 150px;
+}
+
+.btn{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    background-color: #2ecc71; 
+    cursor:pointer;
+    outline: none;
+    border: none;
+    transition: .3s;
+    color:#fff;
+}
+
+.btn:hover{
+    background-color: #27ae60;
+}
+
+@media screen and (max-width:880px){
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+}
