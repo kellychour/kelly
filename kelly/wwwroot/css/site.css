@@ -20,12 +20,11 @@ html {
 
 body {
     margin: 0px;
-    width: 100%;
-    height: 100vh;
+  
 }
 
 .carousel {
-    width: 90vw;
+    width: 83.35vw;
     height: 90vh;
     position: absolute;
     max-height: 80%;
@@ -118,7 +117,7 @@ body {
 }
 
 .carousel-button-next {
-    right: -10% ;
+    right: -18.5% ;
 }
 /* end of carousel */
 
