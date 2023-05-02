@@ -281,3 +281,65 @@ iframe {
     height: 750px;
 }
    
+/* menu page */
+.heading{
+    text-align: center;
+}
+
+.heading h1{
+    font-size: var(--h2-font); 
+    
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    grid-gap: 1.5rem;
+    align-items: center;
+}
+
+.box {
+    position: relative;
+    margin-top: 4rem;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-img {
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 300px;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 300px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: lightgray;
+    border-radius: 600px;
+}
+
+.box-img:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
