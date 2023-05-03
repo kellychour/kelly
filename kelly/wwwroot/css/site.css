@@ -293,7 +293,7 @@ iframe {
 
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     grid-gap: 3rem;
     align-items: center;
 }
