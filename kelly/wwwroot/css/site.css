@@ -294,7 +294,7 @@ iframe {
 .menu-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    grid-gap: 1.5rem;
+    grid-gap: 3rem;
     align-items: center;
 }
 
