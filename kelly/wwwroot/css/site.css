@@ -292,15 +292,38 @@ iframe {
 }
 
 .menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
-    grid-gap: 3rem;
-    align-items: center;
+    display: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+    grid-gap: 6rem;
+
+}
+
+.category-heading {
+    margin-top: 3rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.category {
+    width: 100%;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: 3rem;
+    justify-content: center;
 }
 
 .box {
     position: relative;
     margin-top: 4rem;
+    margin-left: 4rem;
+    margin-right: 8rem;
+    margin-bottom: 4rem;
     height: auto;
     display:flex;
     flex-direction: column;
