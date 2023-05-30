@@ -1,4 +1,14 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using kelly.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("kellyDbContextConnection") ?? throw new InvalidOperationException("Connection string 'kellyDbContextConnection' not found.");
+
+builder.Services.AddDbContext<kellyDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<kellyUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<kellyDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -17,8 +27,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
