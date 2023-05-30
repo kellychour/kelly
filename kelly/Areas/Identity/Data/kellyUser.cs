@@ -10,6 +10,6 @@ namespace kelly.Areas.Identity.Data;
 public class kellyUser : IdentityUser
 {
     public string FirstName { get; set; }
-    public string lastName { get; set; }
+    public string LastName { get; set; }
 }
 
