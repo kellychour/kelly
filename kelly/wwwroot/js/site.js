@@ -26,4 +26,18 @@ function nextSlide() {
 
 // Automatically advance to the next slide every 3 seconds
 setInterval(nextSlide, 3000);
- 
+
+// banh mi dropdown box
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', (event) => {
+        const checkedCount = document.querySelectorAll(
+            'input[type="checkbox"]:checked'
+        ).length;
+
+        if (checkedCount > 2) {
+            event.target.checked = false;
+        }
+    });
+});
