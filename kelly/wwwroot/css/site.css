@@ -370,3 +370,39 @@ iframe {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+/*dropdown box for banh mi options*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown-arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    margin-top: 5px;
+}
+
+    .dropdown-menu.show {
+        display: block;
+    }
