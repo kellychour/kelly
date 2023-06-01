@@ -19,4 +19,11 @@ buttons.forEach(button => {
     });
 });
 
+const nextButton = document.querySelector(".carousel-button-next");
+function nextSlide() {
+    nextButton.click();
+}
 
+// Automatically advance to the next slide every 3 seconds
+setInterval(nextSlide, 3000);
+ 

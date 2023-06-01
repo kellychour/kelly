@@ -14,6 +14,7 @@ html {
 }
 
 /* carousel */
+
     *::before, *::after {
         box-sizing: border-box;
     }
@@ -121,32 +122,7 @@ body {
 }
 /* end of carousel */
 
-/* manual slider nav */
-.navigation-manual{
-    position:absolute;
-    height: 85%;
-    width: 70%;
-    margin-top: 750px;
-    display:flex;
-    left: 27%;
-}
 
-.manual-btn {
-    border: 2px solid;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-
-}
-
-.manual-btn:not(:last-child){
-    margin-right: 40px;
-}
-
-.manual-btn:hover{
-    background: black;
-}
 
 
 /* nav bar */
