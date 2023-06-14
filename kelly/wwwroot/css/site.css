@@ -406,3 +406,55 @@ iframe {
     .dropdown-menu.show {
         display: block;
     }
+
+/* about us cards */
+
+.card-container {
+    width: 350px;
+    height: 500px;
+    perspective: 1500px;
+ 
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1750ms;
+    transform-style: preserve-3d;
+}
+   
+
+.card-container:hover > .card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    background-image: url('../lib/pictures/bok choy.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 500px;
+}
+
+.back {
+    background-color : darkgreen;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
