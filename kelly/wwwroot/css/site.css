@@ -285,13 +285,14 @@ iframe {
 }
    
 /* menu page */
-.heading{
+.menu-heading{
     text-align: center;
 }
 
 
-.heading h1{
-    font-size: var(--h2-font); 
+.menu-heading h1{
+    font-size: 40px;
+    text-align: center;
     
 }
 
@@ -456,5 +457,6 @@ iframe {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     
 }

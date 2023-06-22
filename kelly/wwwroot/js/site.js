@@ -29,6 +29,8 @@ setInterval(nextSlide, 3000);
 
 // banh mi dropdown box
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const toggleButtons = document.querySelectorAll('.dropdown-toggle');
+const dropdownMenus = document.querySelectorAll('.dropdown-menu');
 
 checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', (event) => {
@@ -36,15 +38,24 @@ checkboxes.forEach((checkbox) => {
             'input[type="checkbox"]:checked'
         ).length;
 
-        if (checkedCount > 2) {
-            event.target.checked = false;
+        const parentBox = event.target.closest('.box');
+        const boxTitle = parentBox.querySelector('h3').textContent;
+
+        if (boxTitle === 'Choose 1 half') {
+            if (checkedCount > 1) {
+                event.target.checked = false;
+            }
+        } else if (boxTitle === 'Choose 2 halves') {
+            if (checkedCount > 2) {
+                event.target.checked = false;
+            }
         }
     });
 });
 
-const toggleButton = document.getElementById('dropdown-toggle');
-const dropdownMenu = document.getElementById('dropdown-menu');
-
-toggleButton.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('show');
+toggleButtons.forEach((toggleButton, index) => {
+    toggleButton.addEventListener('click', () => {
+        dropdownMenus[index].classList.toggle('show');
+    });
 });
+
