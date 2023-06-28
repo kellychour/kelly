@@ -26,8 +26,10 @@ public class kellyDbContext : IdentityDbContext<kellyUser>
 
 public class kellyUserEntityConfiguration : IEntityTypeConfiguration<kellyUser>
 {
-    public void Configure(EntityTypeBuilde<kellyUser> builder)
+    public void Configure(EntityTypeBuilder<kellyUser> builder)
     {
-        builder.Property(u => )
+        builder.Property(u => u.FirstName).HasMaxLength(255);
+        builder.Property(u => u.LastName).HasMaxLength(255);
     }
+
 }
