@@ -71,6 +71,8 @@ namespace kelly.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            internal int PhoneNumber;
+
             [Required]
             [StringLength(255, ErrorMessage = "The first name field should have a maximum of 255 characters")]
             [Display(Name ="Firstname")]
@@ -127,6 +129,7 @@ namespace kelly.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName; 
                 user.LastName = Input.LastName;
+                user.PhoneNumber = Input.PhoneNumber;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
