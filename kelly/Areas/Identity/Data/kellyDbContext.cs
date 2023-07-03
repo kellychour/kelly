@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using kelly.Models;
 
 namespace kelly.Areas.Identity.Data;
 
@@ -22,6 +23,8 @@ public class kellyDbContext : IdentityDbContext<kellyUser>
 
         builder.ApplyConfiguration(new kellyUserEntityConfiguration());
     }
+
+    public DbSet<kelly.Models.Product>? Product { get; set; }
 }
 
 public class kellyUserEntityConfiguration : IEntityTypeConfiguration<kellyUser>
