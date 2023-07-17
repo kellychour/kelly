@@ -11,7 +11,7 @@ builder.Services.AddDefaultIdentity<kellyUser>(options => options.SignIn.Require
     .AddEntityFrameworkStores<kellyDbContext>();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
