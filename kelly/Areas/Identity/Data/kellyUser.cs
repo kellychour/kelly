@@ -11,6 +11,5 @@ public class kellyUser : IdentityUser
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public int PhoneNumber { get; set; }
 }
 
