@@ -10,11 +10,11 @@ using kelly.Models;
 
 namespace kelly.Controllers
 {
-    public class ProductsController : Controller
+    public class Productcontroller : Controller
     {
         private readonly kellyDbContext _context;
 
-        public ProductsController(kellyDbContext context)
+        public Productcontroller(kellyDbContext context)
         {
             _context = context;
         }
@@ -56,7 +56,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price,Catergory")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price,Category")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,Price,Catergory")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,Price,Category")] Product product)
         {
             if (id != product.ProductID)
             {
