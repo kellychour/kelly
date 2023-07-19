@@ -12,8 +12,8 @@ using kelly.Areas.Identity.Data;
 namespace kelly.Migrations
 {
     [DbContext(typeof(kellyDbContext))]
-    [Migration("20230717090029_addProduct")]
-    partial class addProduct
+    [Migration("20230719001039_AddedCatergory")]
+    partial class AddedCatergory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,8 +130,12 @@ namespace kelly.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"), 1L, 1);
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<string>("Catergory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()

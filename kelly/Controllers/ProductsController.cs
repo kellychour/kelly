@@ -10,16 +10,16 @@ using kelly.Models;
 
 namespace kelly.Controllers
 {
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
         private readonly kellyDbContext _context;
 
-        public ProductController(kellyDbContext context)
+        public ProductsController(kellyDbContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+        // GET: Products
         public async Task<IActionResult> Index()
         {
               return _context.Product != null ? 
@@ -27,7 +27,7 @@ namespace kelly.Controllers
                           Problem("Entity set 'kellyDbContext.Product'  is null.");
         }
 
-        // GET: Product/Details/5
+        // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Product == null)
@@ -45,18 +45,18 @@ namespace kelly.Controllers
             return View(product);
         }
 
-        // GET: Product/Create
+        // GET: Products/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price,Catergory")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace kelly.Controllers
             return View(product);
         }
 
-        // GET: Product/Edit/5
+        // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Product == null)
@@ -83,12 +83,12 @@ namespace kelly.Controllers
             return View(product);
         }
 
-        // POST: Product/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,Price")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductID,ProductName,Price,Catergory")] Product product)
         {
             if (id != product.ProductID)
             {
@@ -118,7 +118,7 @@ namespace kelly.Controllers
             return View(product);
         }
 
-        // GET: Product/Delete/5
+        // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)
@@ -136,7 +136,7 @@ namespace kelly.Controllers
             return View(product);
         }
 
-        // POST: Product/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

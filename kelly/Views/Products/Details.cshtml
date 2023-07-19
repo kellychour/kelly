@@ -10,6 +10,12 @@
     <h4>Product</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductID)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ProductName)
         </dt>
@@ -21,6 +27,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Catergory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Catergory)
         </dd>
     </dl>
 </div>

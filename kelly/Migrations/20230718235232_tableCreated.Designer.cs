@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using kelly.Areas.Identity.Data;
 
@@ -11,9 +12,10 @@ using kelly.Areas.Identity.Data;
 namespace kelly.Migrations
 {
     [DbContext(typeof(kellyDbContext))]
-    partial class kellyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230718235232_tableCreated")]
+    partial class tableCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,10 +129,6 @@ namespace kelly.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"), 1L, 1);
-
-                    b.Property<string>("Catergory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");

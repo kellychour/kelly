@@ -12,8 +12,8 @@ using kelly.Areas.Identity.Data;
 namespace kelly.Migrations
 {
     [DbContext(typeof(kellyDbContext))]
-    [Migration("20230717083759_addOrder")]
-    partial class addOrder
+    [Migration("20230719001421_AddProduct")]
+    partial class AddProduct
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -117,12 +117,33 @@ namespace kelly.Migrations
                     b.Property<DateTime>("PickupTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("kelly.Models.Product", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"), 1L, 1);
+
+                    b.Property<string>("Catergory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductID");
+
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -4,16 +4,9 @@
 
 namespace kelly.Migrations
 {
-    public partial class addProduct : Migration
+    public partial class catergoryadded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "Catergory",
-                table: "Product");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Catergory",
@@ -21,6 +14,13 @@ namespace kelly.Migrations
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "Catergory",
+                table: "Product");
         }
     }
 }
