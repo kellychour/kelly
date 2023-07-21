@@ -32,6 +32,6 @@ public class kellyUser : IdentityUser
 
     [StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
     [Display(Name = "Address")]
-    public string Address { get; set; }
+    public string? Address { get; set; }
 }
 
