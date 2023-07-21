@@ -70,16 +70,33 @@ namespace kelly.Areas.Identity.Pages.Account
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public class InputModel
-        {
+         {
             [Required]
-            [StringLength(255, ErrorMessage = "The first name field should have a maximum of 255 characters")]
+            [StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
             [Display(Name ="Firstname")]
             public string FirstName { get; set; }
 
             [Required]
-            [StringLength(255, ErrorMessage = "The last name field should have a maximum of 255 characters")]
+            [StringLength(50, ErrorMessage = "The last name field should have a maximum of 50 characters")]
             [Display(Name = "Lastname")]
             public string LastName { get; set; }
+            
+            [Display(Name = "Phone Number")]
+            [Required(ErrorMessage = "This field cannot be left empty")]
+            [RegularExpression("^[0-9]{10}$", ErrorMessage = "Invalid Moblie number")]
+            public string PhoneNumber { get; set; }
+
+            [StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
+            [Display(Name = "Address")]
+            public string Address { get; set; }
+
+            public string FullName
+            {
+                get
+                {
+                    return FirstName + " " + LastName;
+                }
+            }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -127,6 +144,7 @@ namespace kelly.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName; 
                 user.LastName = Input.LastName;
+                user.PhoneNumber = Input.PhoneNumber;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

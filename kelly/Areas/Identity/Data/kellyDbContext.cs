@@ -27,14 +27,19 @@ public class kellyDbContext : IdentityDbContext<kellyUser>
     public DbSet<kelly.Models.Order>? Order { get; set; }
 
     public DbSet<kelly.Models.Product>? Product { get; set; }
+
+    public DbSet<kelly.Models.OrderDetails>? OrderDetails { get; set; }
 }
 
 public class kellyUserEntityConfiguration : IEntityTypeConfiguration<kellyUser>
 {
+
+
     public void Configure(EntityTypeBuilder<kellyUser> builder)
     {
-        builder.Property(u => u.FirstName).HasMaxLength(255);
-        builder.Property(u => u.LastName).HasMaxLength(255);
+        builder.Property(u => u.FirstName).HasMaxLength(50);
+        builder.Property(u => u.LastName).HasMaxLength(50);
+        builder.Property(u => u.Address).HasMaxLength(500);
     }
 
 }

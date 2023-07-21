@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using kelly.Areas.Identity.Data;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("kellyDbContextConnection") ?? throw new InvalidOperationException("Connection string 'kellyDbContextConnection' not found.");
 
@@ -39,39 +40,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-using(var scope= app.Services.CreateScope())
-{
-    var roleManager = 
-        scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    var roles = new[] { "Admin", "Manager", "Customer" };
-
-    foreach (var role in roles)
-    {
-        if (!await roleManager.RoleExistsAsync(role))
-            await roleManager.CreateAsync(new IdentityRole(role));
-    }
-}
-
-using (var scope = app.Services.CreateScope())
-{
-    var userManager =
-        scope.ServiceProvider.GetRequiredService<UserManager<kellyUser>>();
-
-    string email = "admin@admin.com";
-    string password = "Admin!1234"; 
-
-    if(await userManager.FindByEmailAsync(email) == null)
-    {
-        var user = new kellyUser();
-        user.UserName = email;
-        user.Email = email;
-        
-
-        await userManager.CreateAsync(user, password);
-        await userManager.AddToRoleAsync(user, "Admin");
-    }
-}
 
 
 app.Run();
