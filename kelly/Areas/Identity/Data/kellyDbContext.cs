@@ -28,7 +28,8 @@ public class kellyDbContext : IdentityDbContext<kellyUser>
 
     public DbSet<kelly.Models.Product>? Product { get; set; }
 
-    public DbSet<kelly.Models.OrderDetails>? OrderDetails { get; set; }
+    public DbSet<kelly.Models.Orderdetails>? Orderdetails { get; set; }
+
 }
 
 public class kellyUserEntityConfiguration : IEntityTypeConfiguration<kellyUser>
