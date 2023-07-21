@@ -30,8 +30,8 @@ public class kellyUser : IdentityUser
     [RegularExpression("^[0-9]{10}$", ErrorMessage = "Invalid Moblie number")]
     public string PhoneNumber { get; set; }
 
-    [StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
-    [Display(Name = "Address")]
-    public string? Address { get; set; }
+    //[StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
+    //[Display(Name = "Address")]
+    //public string? Address { get; set; }
 }
 

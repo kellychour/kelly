@@ -1,0 +1,2 @@
+﻿ALTER TABLE AspNetUsers
+ADD Address VARCHAR(500) NOT NULL;

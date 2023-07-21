@@ -86,9 +86,9 @@ namespace kelly.Areas.Identity.Pages.Account
             [RegularExpression("^[0-9]{10}$", ErrorMessage = "Invalid Moblie number")]
             public string PhoneNumber { get; set; }
 
-            [StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
-            [Display(Name = "Address")]
-            public string Address { get; set; }
+            //[StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
+            //[Display(Name = "Address")]
+            //public string Address { get; set; }
 
             public string FullName
             {
@@ -145,7 +145,7 @@ namespace kelly.Areas.Identity.Pages.Account
                 user.FirstName = Input.FirstName; 
                 user.LastName = Input.LastName;
                 user.PhoneNumber = Input.PhoneNumber;
-                user.Address = Input.Address;
+                //user.Address = Input.Address;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
