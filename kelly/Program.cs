@@ -64,18 +64,14 @@ public class Program {
             string password = "Admin!1234";
             
 
-           if(await userManager.FindByEmailAsync(email) == null)
-            {
-                var user = new kellyUser();
-                user.Email = email;
-                user.UserName = email;
-                user.FirstName = email; 
-                user.LastName = email;
+           var user = new kellyUser
+           { 
+               Email = email,
+               UserName = email,
+               NormalizedEmail = email.ToUpperInvariant(),
+               NormalizedUserName = email.ToUpperInvariant(),
+            };
 
-                await userManager.CreateAsync(user, password);
-
-                await userManager.AddToRoleAsync(user, "Admin");
-            }
         }
 
         app.Run();
