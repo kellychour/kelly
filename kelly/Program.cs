@@ -43,36 +43,7 @@ public class Program {
              pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-    using(var scope = app.Services.CreateScope())
-    {
-           var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-           var roles = new[] { "Admin", "Manager", "Customer" };
-
-          foreach (var role in roles)
-          {
-              if (!await roleManager.RoleExistsAsync(role))
-              await roleManager.CreateAsync(new IdentityRole(role));
-          }
-    }
-
-        using (var scope = app.Services.CreateScope())
-        {
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<kellyUser>>();
-
-            string email = "admin@admin.com";
-            string password = "Admin!1234";
-            
-
-           var user = new kellyUser
-           { 
-               Email = email,
-               UserName = email,
-               NormalizedEmail = email.ToUpperInvariant(),
-               NormalizedUserName = email.ToUpperInvariant(),
-            };
-
-        }
+   
 
         app.Run();
 
