@@ -12,7 +12,8 @@ using System.Data;
 
 namespace kelly.Controllers
 {
-    [Authorize(Roles = "Admin, Manager")]
+    [Authorize(Roles = "Admin")]
+    
     public class OrderController : Controller
     {
         

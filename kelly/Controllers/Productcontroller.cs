@@ -13,6 +13,7 @@ using System.Data;
 namespace kelly.Controllers
 {
     [Authorize(Roles = "Admin, Manager")]
+    
     public class Productcontroller : Controller
     {
         private readonly kellyDbContext _context;

@@ -32,15 +32,15 @@ namespace kelly.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<kellyUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly RoleManager<IdentityRole> _roleManager;
+      //  private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<kellyUser> userManager,
             IUserStore<kellyUser> userStore,
             SignInManager<kellyUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            IEmailSender emailSender)
+            //RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,7 +48,7 @@ namespace kelly.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-            _roleManager = roleManager;
+           // _roleManager = roleManager;
         }
 
         /// <summary>
@@ -132,30 +132,30 @@ namespace kelly.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-            [Required]
+           // [Required]
 
-            public string? Role { get;set; }
+           // public string? Role { get;set; }
 
-            [ValidateNever]
+          //  [ValidateNever]
             
-            public IEnumerable<SelectListItem> RoleList { get; set; }
+          //  public IEnumerable<SelectListItem> RoleList { get; set; }
         }
 
 
-        public async Task OnGetAsync(string returnUrl = null)
-        {
-            ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+       // public async Task OnGetAsync(string returnUrl = null)
+      //  {
+        //    ReturnUrl = returnUrl;
+         //   ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-            Input = new InputModel()
-            {
-                RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
-                {
-                    Text = i,
-                    Value = i
-                })
-            };
-        }
+         //   Input = new InputModel()
+         //   {
+          //      RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
+             //   {
+             //       Text = i,
+             //       Value = i
+             //   })
+          //  };
+      //  }
 
 
 
@@ -181,7 +181,7 @@ namespace kelly.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    await _userManager.AddToRoleAsync(user, Input.Role);
+                //    await _userManager.AddToRoleAsync(user, Input.Role);
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
