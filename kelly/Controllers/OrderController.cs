@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,7 +63,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime,OrderStatus")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +95,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime,OrderStatus")] Order order)
         {
             if (id != order.OrderID)
             {
