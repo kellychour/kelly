@@ -97,17 +97,45 @@ namespace kelly.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("kelly.Models.Order", b =>
+            modelBuilder.Entity("kelly.Models.OrderDetails", b =>
                 {
-                    b.Property<int>("OrderID")
+                    b.Property<int>("OrderDetailsID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailsID"), 1L, 1);
 
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrdersID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductName")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderDetailsID");
+
+                    b.HasIndex("OrdersID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("kelly.Models.Orders", b =>
+                {
+                    b.Property<int>("OrdersID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrdersID"), 1L, 1);
 
                     b.Property<string>("OrderStatus")
                         .IsRequired()
@@ -116,47 +144,18 @@ namespace kelly.Migrations
                     b.Property<DateTime>("OrderTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("PickupTime")
+                    b.Property<DateTime?>("PickupTime")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.HasKey("OrderID");
+                    b.Property<string>("kellyUserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.ToTable("Order");
-                });
+                    b.HasKey("OrdersID");
 
-            modelBuilder.Entity("kelly.Models.Orderdetails", b =>
-                {
-                    b.Property<int>("OrderdetailsID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasIndex("kellyUserId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderdetailsID"), 1L, 1);
-
-                    b.Property<int>("OrderID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ProductPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ProductQuantity")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("customerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OrderdetailsID");
-
-                    b.HasIndex("OrderID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("Orderdetails");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("kelly.Models.Product", b =>
@@ -319,11 +318,11 @@ namespace kelly.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("kelly.Models.Orderdetails", b =>
+            modelBuilder.Entity("kelly.Models.OrderDetails", b =>
                 {
-                    b.HasOne("kelly.Models.Order", "Order")
+                    b.HasOne("kelly.Models.Orders", "Orders")
                         .WithMany()
-                        .HasForeignKey("OrderID")
+                        .HasForeignKey("OrdersID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -333,9 +332,18 @@ namespace kelly.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Order");
+                    b.Navigation("Orders");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("kelly.Models.Orders", b =>
+                {
+                    b.HasOne("kelly.Areas.Identity.Data.kellyUser", "kellyUser")
+                        .WithMany("Orders")
+                        .HasForeignKey("kellyUserId");
+
+                    b.Navigation("kellyUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -387,6 +395,11 @@ namespace kelly.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("kelly.Areas.Identity.Data.kellyUser", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

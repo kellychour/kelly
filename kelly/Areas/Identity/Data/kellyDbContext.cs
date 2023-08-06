@@ -24,11 +24,17 @@ public class kellyDbContext : IdentityDbContext<kellyUser>
         builder.ApplyConfiguration(new kellyUserEntityConfiguration());
     }
 
-    public DbSet<kelly.Models.Order>? Order { get; set; }
+
 
     public DbSet<kelly.Models.Product>? Product { get; set; }
 
-    public DbSet<kelly.Models.Orderdetails>? Orderdetails { get; set; }
+
+
+    public DbSet<kelly.Models.Orders>? Orders { get; set; }
+
+
+
+    public DbSet<kelly.Models.OrderDetails>? OrderDetails { get; set; }
 
 
 }

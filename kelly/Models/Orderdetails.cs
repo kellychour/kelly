@@ -2,20 +2,18 @@
 
 namespace kelly.Models
 {
-    public class Orderdetails
+    public class OrderDetails
     {
-
-        public int OrderdetailsID { get; set; }
-        public string? customerName { get; set; }
+        public int OrderDetailsID { get; set; }
         [Required]
         public int OrderID { get; set; }
         [Required]
         public int ProductID { get; set; }
         [Required]
-        public decimal ProductPrice { get; set; }
-        public decimal ProductQuantity { get; set; }
-        public decimal Price { get; set; }
-        public Order Order { get; set; }
+        public int ProductName { get; set; }
+        [Required]
+        public int Qty { get; set; }
+        public Orders Orders { get; set; }
         public Product Product { get; set; }
     }
 }

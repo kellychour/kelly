@@ -1,2 +1,13 @@
-﻿ALTER TABLE AspNetUsers
-ADD Address VARCHAR(500); -- Replace VARCHAR(100) with the appropriate data type and length for your address data
+﻿SELECT
+	ProductName,
+	Category,
+	Price
+FROM 
+	Product
+WHERE 
+	Category IN ('Summer roll','Sago')
+	AND Price <10
+ORDER BY 
+	Category ASC;
+
+

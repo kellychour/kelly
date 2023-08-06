@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using kelly.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace kelly.Areas.Identity.Data;
@@ -29,6 +30,7 @@ public class kellyUser : IdentityUser
     [Display(Name ="Moblie Number")]
     [RegularExpression("^[0-9]{10}$", ErrorMessage = "Invalid Moblie number")]
     public string? PhoneNumber { get; set; }
+    public ICollection<Orders> Orders { get; set; }
 
     //[StringLength(50, ErrorMessage = "The first name field should have a maximum of 50 characters")]
     //[Display(Name = "Address")]

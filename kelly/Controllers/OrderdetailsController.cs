@@ -7,102 +7,93 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kelly.Areas.Identity.Data;
 using kelly.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Data;
 
 namespace kelly.Controllers
 {
-    [Authorize(Roles = "Admin, Manager")]
-    
-    public class OrderdetailsController : Controller
+    public class OrderDetailsController : Controller
     {
         private readonly kellyDbContext _context;
 
-        public OrderdetailsController(kellyDbContext context)
+        public OrderDetailsController(kellyDbContext context)
         {
             _context = context;
         }
 
-        // GET: Orderdetails
+        // GET: OrderDetails
         public async Task<IActionResult> Index()
         {
-            var kellyDbContext = _context.Orderdetails.Include(o => o.Order)
-                                                      .Include(o => o.Product);
+            var kellyDbContext = _context.OrderDetails.Include(o => o.Product);
             return View(await kellyDbContext.ToListAsync());
         }
 
-        // GET: Orderdetails/Details/5
+        // GET: OrderDetails/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Orderdetails == null)
+            if (id == null || _context.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderdetails = await _context.Orderdetails
-                .Include(o => o.Order)
+            var orderDetails = await _context.OrderDetails
                 .Include(o => o.Product)
-                .FirstOrDefaultAsync(m => m.OrderdetailsID == id);
-            if (orderdetails == null)
+                .FirstOrDefaultAsync(m => m.OrderDetailsID == id);
+            if (orderDetails == null)
             {
                 return NotFound();
             }
 
-            return View(orderdetails);
+            return View(orderDetails);
         }
 
-        // GET: Orderdetails/Create
+        // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();
         }
 
-        // POST: Orderdetails/Create
+        // POST: OrderDetails/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderdetailsID,customerName,OrderID,ProductID,ProductPrice,ProductQuantity,Price")] Orderdetails orderdetails)
+        public async Task<IActionResult> Create([Bind("OrderDetailsID,OrderID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(orderdetails);
+                _context.Add(orderDetails);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID", orderdetails.OrderID);
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderdetails.ProductID);
-            return View(orderdetails);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
+            return View(orderDetails);
         }
 
-        // GET: Orderdetails/Edit/5
+        // GET: OrderDetails/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Orderdetails == null)
+            if (id == null || _context.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderdetails = await _context.Orderdetails.FindAsync(id);
-            if (orderdetails == null)
+            var orderDetails = await _context.OrderDetails.FindAsync(id);
+            if (orderDetails == null)
             {
                 return NotFound();
             }
-            ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID", orderdetails.OrderID);
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderdetails.ProductID);
-            return View(orderdetails);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
+            return View(orderDetails);
         }
 
-        // POST: Orderdetails/Edit/5
+        // POST: OrderDetails/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderdetailsID,customerName,OrderID,ProductID,ProductPrice,ProductQuantity,Price")] Orderdetails orderdetails)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailsID,OrderID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
-            if (id != orderdetails.OrderdetailsID)
+            if (id != orderDetails.OrderDetailsID)
             {
                 return NotFound();
             }
@@ -111,12 +102,12 @@ namespace kelly.Controllers
             {
                 try
                 {
-                    _context.Update(orderdetails);
+                    _context.Update(orderDetails);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderdetailsExists(orderdetails.OrderdetailsID))
+                    if (!OrderDetailsExists(orderDetails.OrderDetailsID))
                     {
                         return NotFound();
                     }
@@ -127,53 +118,51 @@ namespace kelly.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID", orderdetails.OrderID);
-            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderdetails.ProductID);
-            return View(orderdetails);
+            ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
+            return View(orderDetails);
         }
 
-        // GET: Orderdetails/Delete/5
+        // GET: OrderDetails/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Orderdetails == null)
+            if (id == null || _context.OrderDetails == null)
             {
                 return NotFound();
             }
 
-            var orderdetails = await _context.Orderdetails
-                .Include(o => o.Order)
+            var orderDetails = await _context.OrderDetails
                 .Include(o => o.Product)
-                .FirstOrDefaultAsync(m => m.OrderdetailsID == id);
-            if (orderdetails == null)
+                .FirstOrDefaultAsync(m => m.OrderDetailsID == id);
+            if (orderDetails == null)
             {
                 return NotFound();
             }
 
-            return View(orderdetails);
+            return View(orderDetails);
         }
 
-        // POST: Orderdetails/Delete/5
+        // POST: OrderDetails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Orderdetails == null)
+            if (_context.OrderDetails == null)
             {
-                return Problem("Entity set 'kellyDbContext.Orderdetails'  is null.");
+                return Problem("Entity set 'kellyDbContext.OrderDetails'  is null.");
             }
-            var orderdetails = await _context.Orderdetails.FindAsync(id);
-            if (orderdetails != null)
+            var orderDetails = await _context.OrderDetails.FindAsync(id);
+            if (orderDetails != null)
             {
-                _context.Orderdetails.Remove(orderdetails);
+                _context.OrderDetails.Remove(orderDetails);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrderdetailsExists(int id)
+        private bool OrderDetailsExists(int id)
         {
-          return (_context.Orderdetails?.Any(e => e.OrderdetailsID == id)).GetValueOrDefault();
+          return (_context.OrderDetails?.Any(e => e.OrderDetailsID == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,96 +7,90 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kelly.Areas.Identity.Data;
 using kelly.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Data;
 
 namespace kelly.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
-        
-
         private readonly kellyDbContext _context;
 
-        public OrderController(kellyDbContext context)
+        public OrdersController(kellyDbContext context)
         {
             _context = context;
         }
 
-        // GET: Order
+        // GET: Orders
         public async Task<IActionResult> Index()
         {
-              return _context.Order != null ? 
-                          View(await _context.Order.ToListAsync()) :
-                          Problem("Entity set 'kellyDbContext.Order'  is null.");
+              return _context.Orders != null ? 
+                          View(await _context.Orders.ToListAsync()) :
+                          Problem("Entity set 'kellyDbContext.Orders'  is null.");
         }
 
-        // GET: Order/Details/5
+        // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Order == null)
+            if (id == null || _context.Orders == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Order
-                .FirstOrDefaultAsync(m => m.OrderID == id);
-            if (order == null)
+            var orders = await _context.Orders
+                .FirstOrDefaultAsync(m => m.OrdersID == id);
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            return View(order);
+            return View(orders);
         }
 
-        // GET: Order/Create
+        // GET: Orders/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Order/Create
+        // POST: Orders/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime,OrderStatus")] Order order)
+        public async Task<IActionResult> Create([Bind("OrdersID,OrderTime,PickupTime,OrderStatus,kellyUser")] Orders orders)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
+                _context.Add(orders);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(order);
+            return View(orders);
         }
 
-        // GET: Order/Edit/5
+        // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Order == null)
+            if (id == null || _context.Orders == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Order.FindAsync(id);
-            if (order == null)
+            var orders = await _context.Orders.FindAsync(id);
+            if (orders == null)
             {
                 return NotFound();
             }
-            return View(order);
+            return View(orders);
         }
 
-        // POST: Order/Edit/5
+        // POST: Orders/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderID,ProductID,CustomerName,OrderTime,PickupTime,OrderStatus")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrdersID,OrderTime,PickupTime,OrderStatus,kellyUser")] Orders orders)
         {
-            if (id != order.OrderID)
+            if (id != orders.OrdersID)
             {
                 return NotFound();
             }
@@ -106,12 +99,12 @@ namespace kelly.Controllers
             {
                 try
                 {
-                    _context.Update(order);
+                    _context.Update(orders);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderExists(order.OrderID))
+                    if (!OrdersExists(orders.OrdersID))
                     {
                         return NotFound();
                     }
@@ -122,49 +115,49 @@ namespace kelly.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(order);
+            return View(orders);
         }
 
-        // GET: Order/Delete/5
+        // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Order == null)
+            if (id == null || _context.Orders == null)
             {
                 return NotFound();
             }
 
-            var order = await _context.Order
-                .FirstOrDefaultAsync(m => m.OrderID == id);
-            if (order == null)
+            var orders = await _context.Orders
+                .FirstOrDefaultAsync(m => m.OrdersID == id);
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            return View(order);
+            return View(orders);
         }
 
-        // POST: Order/Delete/5
+        // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Order == null)
+            if (_context.Orders == null)
             {
-                return Problem("Entity set 'kellyDbContext.Order'  is null.");
+                return Problem("Entity set 'kellyDbContext.Orders'  is null.");
             }
-            var order = await _context.Order.FindAsync(id);
-            if (order != null)
+            var orders = await _context.Orders.FindAsync(id);
+            if (orders != null)
             {
-                _context.Order.Remove(order);
+                _context.Orders.Remove(orders);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OrderExists(int id)
+        private bool OrdersExists(int id)
         {
-          return (_context.Order?.Any(e => e.OrderID == id)).GetValueOrDefault();
+          return (_context.Orders?.Any(e => e.OrdersID == id)).GetValueOrDefault();
         }
     }
 }

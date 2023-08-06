@@ -1,4 +1,4 @@
-﻿@model IEnumerable<kelly.Models.Order>
+﻿@model IEnumerable<kelly.Models.Orders>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,12 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.OrderID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.OrderTime)
             </th>
             <th>
@@ -27,18 +21,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.OrderStatus)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kellyUser)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderTime)
             </td>
@@ -49,9 +40,12 @@
                 @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderID">Delete</a>
+                @Html.DisplayFor(modelItem => item.kellyUser)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrdersID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrdersID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrdersID">Delete</a>
             </td>
         </tr>
 }

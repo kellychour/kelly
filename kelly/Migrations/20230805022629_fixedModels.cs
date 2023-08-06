@@ -4,7 +4,7 @@
 
 namespace kelly.Migrations
 {
-    public partial class AddedNumber : Migration
+    public partial class fixedModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
