@@ -22,7 +22,7 @@ namespace kelly.Controllers
         // GET: OrderDetails
         public async Task<IActionResult> Index()
         {
-            var kellyDbContext = _context.OrderDetails.Include(o => o.Product);
+            var kellyDbContext = _context.OrderDetails.Include(o => o.Orders).Include(o => o.Product);
             return View(await kellyDbContext.ToListAsync());
         }
 
@@ -35,6 +35,7 @@ namespace kelly.Controllers
             }
 
             var orderDetails = await _context.OrderDetails
+                .Include(o => o.Orders)
                 .Include(o => o.Product)
                 .FirstOrDefaultAsync(m => m.OrderDetailsID == id);
             if (orderDetails == null)
@@ -48,6 +49,7 @@ namespace kelly.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();
         }
@@ -57,14 +59,15 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderDetailsID,OrderID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
+        public async Task<IActionResult> Create([Bind("OrderDetailsID,OrdersID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(orderDetails);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -82,6 +85,7 @@ namespace kelly.Controllers
             {
                 return NotFound();
             }
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -91,14 +95,14 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailsID,OrderID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderDetailsID,OrdersID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
             if (id != orderDetails.OrderDetailsID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -118,6 +122,7 @@ namespace kelly.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -131,6 +136,8 @@ namespace kelly.Controllers
             }
 
             var orderDetails = await _context.OrderDetails
+
+                .Include(o => o.Orders)
                 .Include(o => o.Product)
                 .FirstOrDefaultAsync(m => m.OrderDetailsID == id);
             if (orderDetails == null)
