@@ -49,7 +49,7 @@ namespace kelly.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID");
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();
         }
@@ -61,13 +61,13 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderDetailsID,OrdersID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(orderDetails);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -85,7 +85,7 @@ namespace kelly.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -102,7 +102,7 @@ namespace kelly.Controllers
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -122,7 +122,7 @@ namespace kelly.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -136,7 +136,6 @@ namespace kelly.Controllers
             }
 
             var orderDetails = await _context.OrderDetails
-
                 .Include(o => o.Orders)
                 .Include(o => o.Product)
                 .FirstOrDefaultAsync(m => m.OrderDetailsID == id);

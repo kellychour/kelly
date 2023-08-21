@@ -17,7 +17,7 @@ namespace kelly.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.20")
+                .HasAnnotation("ProductVersion", "6.0.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -327,13 +327,13 @@ namespace kelly.Migrations
             modelBuilder.Entity("kelly.Models.OrderDetails", b =>
                 {
                     b.HasOne("kelly.Models.Orders", "Orders")
-                        .WithMany()
+                        .WithMany("OrderDetails")
                         .HasForeignKey("OrdersID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("kelly.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderDetails")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -406,6 +406,16 @@ namespace kelly.Migrations
             modelBuilder.Entity("kelly.Areas.Identity.Data.kellyUser", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("kelly.Models.Orders", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("kelly.Models.Product", b =>
+                {
+                    b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618
         }

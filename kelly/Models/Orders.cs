@@ -1,5 +1,5 @@
 ﻿using kelly.Areas.Identity.Data;
-using kelly.Migrations;
+
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.ExceptionServices;
 
@@ -29,7 +29,8 @@ namespace kelly.Models
         public string OrderStatus { get; set; }
         
         public kellyUser kellyUser { get; set; }
-        //public OrderDetails OrderDetails { get; set; }
+        public ICollection<OrderDetails> OrderDetails { get; set; }
+        
 
 
 

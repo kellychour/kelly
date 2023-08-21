@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kelly.Areas.Identity.Data;
 using kelly.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace kelly.Controllers
 {
@@ -20,7 +19,6 @@ namespace kelly.Controllers
             _context = context;
         }
 
-        [Authorize]
         // GET: Orders
         public async Task<IActionResult> Index()
         {
@@ -48,7 +46,6 @@ namespace kelly.Controllers
         }
 
         // GET: Orders/Create
-        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -59,9 +56,9 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus,kellyUser")] Orders orders)
+        public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(orders);
                 await _context.SaveChangesAsync();
@@ -91,14 +88,14 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus,kellyUser")] Orders orders)
+        public async Task<IActionResult> Edit(int id, [Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
             if (id != orders.OrdersID)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {

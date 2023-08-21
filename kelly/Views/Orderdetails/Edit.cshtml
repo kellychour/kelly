@@ -13,7 +13,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="OrderDetailsID" />
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="OrdersID" class="control-label"></label>
                 <select asp-for="OrdersID" class="form-control" asp-items="ViewBag.OrdersID"></select>
                 <span asp-validation-for="OrdersID" class="text-danger"></span>
