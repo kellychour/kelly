@@ -124,7 +124,7 @@ namespace kelly.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderDetails", (string)null);
                 });
 
             modelBuilder.Entity("kelly.Models.Orders", b =>
@@ -161,7 +161,7 @@ namespace kelly.Migrations
 
                     b.HasIndex("kellyUserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("kelly.Models.Product", b =>
@@ -184,7 +184,7 @@ namespace kelly.Migrations
 
                     b.HasKey("ProductID");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

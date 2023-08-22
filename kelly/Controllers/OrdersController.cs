@@ -58,7 +58,7 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(orders);
                 await _context.SaveChangesAsync();
@@ -95,7 +95,7 @@ namespace kelly.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {

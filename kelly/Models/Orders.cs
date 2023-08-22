@@ -1,5 +1,5 @@
 ﻿using kelly.Areas.Identity.Data;
-
+using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.ExceptionServices;
 

@@ -1,14 +1,21 @@
 ﻿@model IEnumerable<kelly.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Products";
 }
 
-<h1>Index</h1>
+<h1>Products</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Products" asp-action="Index">
+    <p>
+        Category <input type="text" name="SearchString"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>

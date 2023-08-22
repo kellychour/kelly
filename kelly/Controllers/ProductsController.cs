@@ -20,11 +20,25 @@ namespace kelly.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Product != null ? 
+            if (_context.Product == null)
+            {
+                return _context.Product != null ?
                           View(await _context.Product.ToListAsync()) :
                           Problem("Entity set 'kellyDbContext.Product'  is null.");
+            }
+
+            var Products = from m in _context.Product
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Products = Products.Where(s => s.Category!.Contains(searchString));
+            }
+
+            return View(await Products.ToListAsync());
+
         }
 
         // GET: Products/Details/5
@@ -58,7 +72,7 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price,Category")] Product product)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -95,7 +109,7 @@ namespace kelly.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
