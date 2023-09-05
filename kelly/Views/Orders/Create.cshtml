@@ -1,4 +1,9 @@
 ﻿@model kelly.Models.Orders
+@using Microsoft.AspNetCore.Identity
+@using kelly.Areas.Identity.Data
+@inject SignInManager<kellyUser> SignInManager
+@inject UserManager<kellyUser> UserManager
+
 
 @{
     ViewData["Title"] = "Create";
@@ -34,9 +39,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="OrderStatus" class="control-label"></label>
-                <input asp-for="OrderStatus" class="form-control" />
+                <select select asp-for="OrderStatus" class="form-control">
+                    <option value="">Admin Use Only</option>
+                    <option value="Requested">Request recieved</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Awaiting Payment">Payment pending</option>
+                    <option value="In Progress">Cooking</option>
+                    <option value="Complete">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
                 <span asp-validation-for="OrderStatus" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+            <label asp-for="kellyUser" class="control-label"></label>
+            <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -45,7 +64,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

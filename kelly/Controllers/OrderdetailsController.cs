@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using kelly.Areas.Identity.Data;
 using kelly.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace kelly.Controllers
 {
+    [Authorize]
     public class OrderDetailsController : Controller
     {
         private readonly kellyDbContext _context;
