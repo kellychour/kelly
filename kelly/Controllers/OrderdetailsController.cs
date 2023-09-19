@@ -64,6 +64,11 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderDetailsID,OrdersID,ProductID,ProductName,Qty")] OrderDetails orderDetails)
         {
+            if (orderDetails.Qty <= 1)
+            {
+                ModelState.AddModelError("", "Price can not be less than 1");
+                return View(orderDetails);
+            }
             if (!ModelState.IsValid)
             {
                 _context.Add(orderDetails);

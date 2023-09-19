@@ -75,6 +75,11 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductID,ProductName,Price,Category")] Product product)
         {
+            if(product.Price <= 0)
+            {
+                ModelState.AddModelError("", "Price can not be less than $0.00");
+                return View(product);
+            }
             if (!ModelState.IsValid)
             {
                 _context.Add(product);

@@ -61,6 +61,11 @@ namespace kelly.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
+            if (orders.PickupTime <= DateTime.Now)
+            {
+                ModelState.AddModelError("", "Date cannot be in the past");
+                return View(orders);
+            }
             if (!ModelState.IsValid)
             {
                 _context.Add(orders);
