@@ -285,6 +285,21 @@ iframe {
 }
    
 /* menu page */
+.menu-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+    .menu-button:hover {
+        opacity: 75%;
+        color: #ffffff;
+    }
+
 .menu-heading{
     text-align: center;
 }
