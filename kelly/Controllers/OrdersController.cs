@@ -9,6 +9,7 @@ using kelly.Areas.Identity.Data;
 using kelly.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using AspNetCore;
 
 namespace kelly.Controllers
 {
@@ -62,6 +63,8 @@ namespace kelly.Controllers
         public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
             orders.OrderTime = DateTime.Now;
+            orders.OrderStatus = "Pending"; // Makes sure "Pending" is automatically filled out
+
 
             if (orders.PickupTime <= DateTime.Now)
             {
@@ -74,10 +77,12 @@ namespace kelly.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(orders);
+            return View(Views_Orders_Create);
         }
 
         // GET: Orders/Edit/5
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Orders == null)

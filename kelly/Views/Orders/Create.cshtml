@@ -9,55 +9,73 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Order from us here on:</h1>
 
-<h4>Orders</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PickupTime" class="control-label"></label>
-                <input asp-for="PickupTime" class="form-control" />
-                <span asp-validation-for="PickupTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OrderStatus" class="control-label"></label>
-                <select select asp-for="OrderStatus" class="form-control">
-                    <option value="">Admin Use Only</option>
-                    <option value="Requested">Request recieved</option>
-                    <option value="Approved">Approved</option>
-                    <option value="Awaiting Payment">Payment pending</option>
-                    <option value="In Progress">Cooking</option>
-                    <option value="Complete">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-                <span asp-validation-for="OrderStatus" class="text-danger"></span>
-            </div>
 
-            <div class="form-group">
-            <label asp-for="kellyUser" class="control-label"></label>
-            <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
-            </div>
+<div class="left-container">
+    <div class="form-container">
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        <h1>Create</h1>
+
+        <h4>Orders</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PickupTime" class="control-label"></label>
+                        <input asp-for="PickupTime" class="form-control" />
+                        <span asp-validation-for="PickupTime" class="text-danger"></span>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label asp-for="kellyUser" class="control-label"></label>
+                        <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
+
     </div>
+
+
 </div>
 
+<div class="container">
+    <div class="right-container">
+        <h3>Or on here:</h3>
+        <div class="image-container">
+            <a href="https://www.ubereats.com/nz/store/rolls-of-vietnam/EQoGBnCcXfibzqVfdWh2ew" target="_blank">
+                <img src="https://cdn.lovesavingsgroup.com/logos/ubereats.png"
+                     alt="uber eats logo" style="width:200px;height:200px;" />
+            </a>
+        </div>
+
+        <div class="image-container">
+            <a href="https://www.menulog.co.nz/restaurants-rolls-of-vietnam-auckland/menu" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDmxJcyVODRV8-J0ZDjgOKR0EV1gf9vNFFocB9ntGWwrvO3aGr9UcH8KGitjHDciWyS_k&usqp=CAU"
+                     alt="menulog logo" style="width:200px;height:200px;border-style:solid;border-color:orange;" />
+            </a>
+        </div>
+
+    </div>
+</div>
 <div>
 </div>
 

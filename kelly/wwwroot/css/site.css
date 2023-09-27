@@ -475,3 +475,35 @@ iframe {
     text-align: center;
     
 }
+
+/*Order page*/
+
+
+.right-container {
+    flex-direction: column;
+    position:absolute;
+    right: 20%;
+    top: 270px;
+    padding: 20px;
+}
+
+.image-container {
+    text-align: right;
+    padding: 10px;
+    right: 50px;
+}
+
+    .image-container img {
+        width: 200px;
+        height: 200px;
+    }
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.form-container {
+    padding: 20px;
+}
