@@ -9,7 +9,7 @@ using kelly.Areas.Identity.Data;
 using kelly.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
-using AspNetCore;
+
 
 namespace kelly.Controllers
 {
@@ -77,7 +77,7 @@ namespace kelly.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(Views_Orders_Create);
+            return View();
         }
 
         // GET: Orders/Edit/5

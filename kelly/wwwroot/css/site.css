@@ -174,6 +174,8 @@ header ul li a:hover::before
     width: 100%;
     height: 100%;
     padding: 20px 100px;
+    top:70px;
+    margin-bottom: 140px;
 }
 
     .contactcontainer:after {
@@ -288,7 +290,7 @@ iframe {
 .menu-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #198754;
     color: #000000;
     text-decoration: none;
     border-radius: 10px;
@@ -425,11 +427,17 @@ iframe {
 
 /* about us cards */
 
+.flip-cards {
+    text-align: center;
+}
+
 .card-container {
     width: 350px;
     height: 500px;
     perspective: 1500px;
- 
+    display: inline-block;
+    margin-right: 30px;
+   
 }
 
 .card {
@@ -457,7 +465,42 @@ iframe {
 }
 
 .front {
-    background-image: url('../lib/pictures/bok choy.png');
+    background-image: url('../lib/pictures/capture.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 500px;
+}
+.front2,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front2 {
+    background-image: url('../lib/pictures/aim.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 500px;
+}
+.front3,
+.back {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front3 {
+    background-image: url('../lib/pictures/journ.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -466,44 +509,47 @@ iframe {
 }
 
 .back {
-    background-color : darkgreen;
+    background-color: #198754;
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
 }
 
 /*Order page*/
 
 
 .right-container {
-    flex-direction: column;
+
     position:absolute;
-    right: 20%;
-    top: 270px;
-    padding: 20px;
+    right: 18%;
+    top: 240px;
 }
 
 .image-container {
     text-align: right;
-    padding: 10px;
-    right: 50px;
+    right: 35%;
 }
 
     .image-container img {
         width: 200px;
         height: 200px;
+        border-radius:10px;
+
     }
 
 .left-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+
 }
 
 .form-container {
     padding: 20px;
+}
+
+.form-group{
+    width:100%;
 }
