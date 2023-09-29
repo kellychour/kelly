@@ -3,7 +3,7 @@
     ViewData["Title"] = "about us";
 }
 
-<h1 style="text-align:center;">About us</h1></br>
+<h1 style="text-align:center; font-family: Verdana,Arial;">Learn a little about us...</h1></br>
 <div class="flip-cards">
     <div class="card-container">
         <div class="card">
@@ -43,15 +43,17 @@
 </br>
 
 <div class="contactcontainer" >
+    
     <div class="contact-box">
-
-        <h2>contact us here!</h2>
-        <input type="text" class="field" placeholder="your name" />
-        <input type="email" class="field" placeholder="your email" />
-        <input type="text" class="field" placeholder="your phone number" />
-        <textarea class="field area" placeholder="message"></textarea>
-        <button class="btn">submit</button>
-
+        <form action="https://formspree.io/f/xknlpgyw" method="POST">
+            <h2>Leave us a message!</h2>
+            <input type="text" name="name" class="field" placeholder="Your fullname" autocomplete="off" required/>
+            <input type="email" name="email" class="field" placeholder="Your email" autocomplete="off" required />
+            <input type="text" name="phone" class="field" placeholder="Your phone number" autocomplete="off" required />
+            <textarea type="text" name="message" class="field area" placeholder="Message" autocomplete="off" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        
+        </form>
     </div>
 </div>
 
