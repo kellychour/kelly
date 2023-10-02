@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/kelly.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-success border-bottom box-shadow mb-3">
+       
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Rolls of Vietnam</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -63,14 +65,23 @@
 
     <div class="footer">
         <footer class="border-top footer text-muted">
-            <div class="container">
+            <div class="footer-container" style="color: #f1e4bcff; background-color: #3c763d;">
                 &copy; 2023 - kelly - <a asp-area="" asp-controller="Home" asp-action="Menu">Menu</a>
                 <a asp-area="" asp-controller="Home" asp-action="About">About us</a>
-                <a asp-area="" asp-controller="Home" asp-action="location">Locations</a>
-
+                <h6>Business hours:</h6>
+                <p style="font-size: 14px;">
+                    MONDAY 9 A.M. TO 6 P.M. <br>
+                    TUESDAY 9 A.M. TO 6 P.M. <br>
+                    WEDNESDAY 9 A.M. TO 6 P.M. <br>
+                    THURSDAY 9 A.M. TO 9 P.M. <br>
+                    FRIDAY 9 A.M. TO 9 P.M. <br>
+                    SATURDAY 9 A.M. TO 6 P.M. <br>
+                    SUNDAY 9 A.M. TO 6 P.M.
+                </p>
             </div>
         </footer>
     </div>
+
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

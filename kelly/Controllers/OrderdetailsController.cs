@@ -52,7 +52,7 @@ namespace kelly.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName");
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID" , "OrdersID");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();
         }
@@ -75,7 +75,7 @@ namespace kelly.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -93,7 +93,7 @@ namespace kelly.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
@@ -130,7 +130,7 @@ namespace kelly.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "FirstName", orderDetails.OrdersID);
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID", "OrdersID", orderDetails.OrdersID);
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID", orderDetails.ProductID);
             return View(orderDetails);
         }
