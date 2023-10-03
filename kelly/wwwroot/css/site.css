@@ -13,6 +13,10 @@ html {
   min-height: 100%;
 }
 
+table.table{
+    border-color: black;
+}
+
 /* carousel */
 
     *::before, *::after {
@@ -176,6 +180,7 @@ header ul li a:hover::before
     height: 100%;
     padding: 20px 100px;
     margin-block: 100px;
+    margin-bottom: 200px;
 }
 
     .contactcontainer:after {
@@ -323,7 +328,7 @@ iframe {
     grid-template-columns: repeat(auto-fit, minmax(500px, auto));
     grid-gap: 6rem;
     margin-bottom: 100px;
-
+    background-color: #f1e4bcff;
 }
 
 .category-heading {
@@ -351,20 +356,25 @@ iframe {
     margin-right: 4rem;
     margin-bottom: 4rem;
     height: auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #f1e4bcff;
 }
 
 .box-img {
     position: relative;
+    color: #f1e4bcff;
+
 }
 
 .image {
     display: block;
     width: 300px;
     height: auto;
+    border-radius: 50%;
+
 }
 
 .overlay {
@@ -433,6 +443,7 @@ iframe {
 
 .flip-cards {
     text-align: center;
+    background-color: #f1e4bcff;
 }
 
 .card-container {
@@ -441,7 +452,7 @@ iframe {
     perspective: 1500px;
     display: inline-block;
     margin-right: 30px;
-   
+    color: #f1e4bcff;
 }
 
 .card {
@@ -450,6 +461,8 @@ iframe {
     position: relative;
     transition: transform 1750ms;
     transform-style: preserve-3d;
+    color: #f1e4bcff;
+    background-color: #f1e4bcff;
 }
    
 
@@ -564,10 +577,118 @@ iframe {
     position: absolute;
     width: 100%;
     height: 129px;
+    
 }
 
+
+.fa {
+    padding: 30px;
+    font-size: 70px;
+    width: 90px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+.fa-facebook {
+    background-color: #f1e4bcff;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.business-hours {
+    flex: 1;
+}
 
 
 .navbar {
     background-color: #3c763d;
 }
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.custom-button {
+    background-color: lightgrey;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .custom-button:hover {
+        background-color: #3c763d;
+        color: lightgrey;
+    }
+
+
+
+
+
+
+.sidepanel {
+    height: 100%; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 70px;
+    left: 0;
+    background-color: #3c763d; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 70px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+    /* The sidepanel links */
+    .sidepanel a {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        padding: 20px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 26px;
+        color: #f1e4bcff;
+        display: block;
+        transition: 0.3s;
+    }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidepanel a:hover {
+            color: white;
+        }
+
+    /* Position and style the close button (top right corner) */
+    .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 30px;
+        margin-left: 50px;
+    }
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #3c763d;
+    color: white;
+    padding: 10px 15px 10px;
+    border: none;
+    border-radius: 10px; 
+}
+
+    .openbtn:hover {
+        background-color: lightgrey;
+    }

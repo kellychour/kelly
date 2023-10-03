@@ -3,23 +3,34 @@
     ViewData["Title"] = "our menu";
 }
  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<body>
+<body style="background-color:#f1e4bcff;">
 <!--start of menu-->
 <section class="menu" id="menu">
     <div class="menu-heading">
 
-            <h1 style="font-family: Impact,Arial;">FRESH FOOD AT A GREAT PRICE!</h1><br />
+            <h1 style="font-family: Impact,Arial; text-decoration:underline;">FRESH FOOD AT A GREAT PRICE!</h1><br />
     </div>
-    <div style="position:absolute; left:1%">
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#Banhmi">- Banh mi</a><br />
+            <a href="#Summerroll">- Summer roll</a><br />
+            <a href="#Vermicellisalad">- Vermicelli salad</a><br />
+            <a href="#Sago">- Sago</a>
+        </div>
+
+        <button class="openbtn" onclick="openNav()">&#9776; Category</button>
+        
+   <!--<div style="position:absolute; left:1%">
         <a class="menu-button" href="#Banhmi">Banh mi</a><br />
         <a class="menu-button" href="#Summerroll">Summer roll</a><br />
         <a class="menu-button" href="#Vermicellisalad">Vermicelli salad</a><br />
         <a class="menu-button" href="#Sago">Sago</a>
-    </div>
+         </div>-->
 
     <style>
         .rounded-image {
             border-radius: 40px; 
+            margin-top: 20px;
         }
     </style>
 
@@ -74,7 +85,7 @@
 
           <div class="box">
             <div class="box-img">
-               <img src="~/lib/pictures/image[2].jpeg" width="300px" height="300px"/>
+                        <img src="~/lib/pictures/image[2].jpeg" width="300px" height="300px" style="border-radius:50%;" />
                 <div class="overlay">
                     <div class="text">+</div>
                 </div>
@@ -100,7 +111,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="~/lib/pictures/half banh mi.jpg" width="300px" height="300px" />
+                    <img src="~/lib/pictures/half banh mi.jpg" width="300px" height="300px" style="border-radius:50%;" />
                     <div class="overlay">
                         <div class="text">+</div>
                     </div>
@@ -295,7 +306,7 @@
 
             <div class="box">
                 <div class="box-img">
-                    <img src="~/lib/pictures/image[9].jpeg" width="300px" height="300px" alt="Blueberry pudding dessert" />
+                        <img src="~/lib/pictures/image[9].jpeg" width="300px" height="300px" alt="Blueberry pudding dessert" style="border-radius:50%;" />
                     <div class="overlay">
                         <div class="text">+</div>
                     </div>

@@ -23,13 +23,34 @@ namespace kelly.Controllers
             _context = context;
         }
 
+
         // GET: Orders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Orders != null ? 
+            if (_context.Product == null)
+            {
+                return _context.Orders != null ?
                           View(await _context.Orders.ToListAsync()) :
-                          Problem("Entity set 'kellyDbContext.Orders'  is null.");
+                          Problem("Entity set 'kellyDbContext.Product'  is null.");
+            }
+
+            var Orders = from m in _context.Orders
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Orders = Orders.Where(s => s.OrderStatus!.Contains(searchString));
+            }
+
+            return View(await Orders.ToListAsync());
+
         }
+       // public async Task<IActionResult> Index()
+       // {
+        //      return _context.Orders != null ? 
+      //                    View(await _context.Orders.ToListAsync()) :
+    //                      Problem("Entity set 'kellyDbContext.Orders'  is null.");
+     //   }
 
         // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)

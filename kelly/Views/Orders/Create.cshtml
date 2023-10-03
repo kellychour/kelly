@@ -8,71 +8,73 @@
 @{
     ViewData["Title"] = "Create";
 }
+<body style="background-color:#f1e4bcff;">
+    <div class="left-container">
+        <div class="form-container">
 
-<div class="left-container">
-    <div class="form-container">
+            <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Place an order here!</h1>
 
-        <h1>Place an order here!</h1>
+            <h4>Create</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PickupTime" class="control-label"></label>
+                            <input asp-for="PickupTime" class="form-control" />
+                            <span asp-validation-for="PickupTime" class="text-danger"></span>
+                        </div>
 
-        <h4>Create</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="FirstName" class="control-label"></label>
-                        <input asp-for="FirstName" class="form-control" />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="LastName" class="control-label"></label>
-                        <input asp-for="LastName" class="form-control" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="PickupTime" class="control-label"></label>
-                        <input asp-for="PickupTime" class="form-control" />
-                        <span asp-validation-for="PickupTime" class="text-danger"></span>
-                    </div>
-                    
 
-                    <div class="form-group">
-                        <label asp-for="kellyUser" class="control-label"></label>
-                        <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
-                    </div>
+                        <div class="form-group">
+                            <label asp-for="kellyUser" class="control-label"></label>
+                            <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
+                        </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-
-    </div>
-
-
-</div>
-
-<div class="container">
-    <div class="right-container">
-        <h3>Get it delivered:</h3>
-        <div class="image-container">
-            <a href="https://www.ubereats.com/nz/store/rolls-of-vietnam/EQoGBnCcXfibzqVfdWh2ew" target="_blank">
-                <img src="https://cdn.lovesavingsgroup.com/logos/ubereats.png"
-                     alt="uber eats logo"/>
-            </a>
-            <a href="https://www.menulog.co.nz/restaurants-rolls-of-vietnam-auckland/menu" target="_blank">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDmxJcyVODRV8-J0ZDjgOKR0EV1gf9vNFFocB9ntGWwrvO3aGr9UcH8KGitjHDciWyS_k&usqp=CAU"
-                     alt="menulog logo" style="border-style:solid;border-color:orange;" />
-            </a>
 
         </div>
 
+
     </div>
-</div>
-<div>
-</div>
+
+    <div class="container">
+        <div class="right-container" style="left:60%;">
+            <h3>Get it delivered:</h3>
+            <div class="image-container">
+                <a href="https://www.ubereats.com/nz/store/rolls-of-vietnam/EQoGBnCcXfibzqVfdWh2ew" target="_blank">
+                    <img src="https://cdn.lovesavingsgroup.com/logos/ubereats.png"
+                         alt="uber eats logo" />
+                </a>
+                <a href="https://www.menulog.co.nz/restaurants-rolls-of-vietnam-auckland/menu" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDmxJcyVODRV8-J0ZDjgOKR0EV1gf9vNFFocB9ntGWwrvO3aGr9UcH8KGitjHDciWyS_k&usqp=CAU"
+                         alt="menulog logo" style="border-style:solid;border-color:orange;" />
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div>
+    </div>
+
+</body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

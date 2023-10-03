@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
+<body style="background-color: #f1e4bcff;">
 <h1>Index</h1>
 
 <p>
@@ -43,11 +44,12 @@
                 @Html.DisplayFor(modelItem => item.Product.ProductID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderDetailsID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderDetailsID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderDetailsID">Delete</a>
+                    <a style="color:#3c763d;"  asp-action="Edit" asp-route-id="@item.OrderDetailsID">Edit</a> |
+                    <a style="color:#3c763d;" asp-action="Details" asp-route-id="@item.OrderDetailsID">Details</a> |
+                    <a style="color:#3c763d;" asp-action="Delete" asp-route-id="@item.OrderDetailsID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</body>

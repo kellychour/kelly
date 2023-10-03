@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/kelly.styles.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e655279e65.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -66,21 +67,55 @@
     <div class="footer">
         <footer class="border-top footer text-muted">
             <div class="footer-container" style="color: #f1e4bcff; background-color: #3c763d;">
-                &copy; 2023 - kelly - <a asp-area="" asp-controller="Home" asp-action="Menu">Menu</a>
-                <a asp-area="" asp-controller="Home" asp-action="About">About us</a>
-                <h6>Business hours:</h6>
-                <p style="font-size: 14px;">
-                    MONDAY 9 A.M. TO 6 P.M. <br>
-                    TUESDAY 9 A.M. TO 6 P.M. <br>
-                    WEDNESDAY 9 A.M. TO 6 P.M. <br>
-                    THURSDAY 9 A.M. TO 9 P.M. <br>
-                    FRIDAY 9 A.M. TO 9 P.M. <br>
-                    SATURDAY 9 A.M. TO 6 P.M. <br>
-                    SUNDAY 9 A.M. TO 6 P.M.
-                </p>
+                <div class="footer-links" style="text-align: center;">
+                    &copy; 2023 - Rolls Of Vietnam - <a style="text-decoration: none; color: #f1e4bc;" asp-area="" asp-controller="Home" asp-action="Menu"><strong>Menu</strong></a> -
+                    <a style="text-decoration: none; color: #f1e4bc;" asp-area="" asp-controller="Home" asp-action="About"><strong>About us</strong></a> -
+                    <a style="text-decoration: none; color: #f1e4bc;" asp-area="" asp-controller="Home" asp-action="location"><strong>Location</strong></a>-
+                    <a style="text-decoration: none; color: #f1e4bc;" asp-area="" asp-controller="Orders" asp-action="Create"><strong>Order</strong></a> <br />
+                </div>
+                <br />
+                <div class="footer-content">
+                    
+                    
+                    <div class="contact-info" style="margin-left:15%;">
+                        
+                        <h4 style="text-decoration: underline; padding-top:16px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Get in touch:</h4>
+                        <p style="font-size: 14px; line-height:3;">
+                            <i class="fa-solid fa-map-pin"></i><a style=" text-decoration: none; color: #f1e4bc;" href="https://maps.app.goo.gl/fCWsxJfiRhEhfkmb8" target="_blank"> 3058 Great North Road, New Lynn, Auckland 0600 </a><br />
+                            <a href="tel:0222277622" style="text-decoration: none; color: #f1e4bc;"> &#9743; 022 227 7622</a> <br />
+                            <div class="email-link" style="line-height:1; padding-bottom: 20px;">
+                                &#9993; <a href="mailto:RollsOfVietnam@gmail.com" style="text-decoration: none; color: #f1e4bc; font-size:14px;"><strong>RollsOfVietnam@gmail.com</strong></a>
+                            </div> 
+                            <div class="img-links" style="display:flex; gap: 30px;">
+                                <a style="text-decoration: none; color: #f1e4bc;border: solid; border-color:#f1e4bc;" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <img style="filter: grayscale(90%); height:100px; width:auto; " src="~/lib/pictures/rolls of vietnam logo.png" alt="Rolls of Vietnam logo" />
+                                </a>
+
+                                <a style="color: #3c763d; font-size: 30px;" href="https://m.facebook.com/people/Rolls-of-Vietnam-NZ/100067447810796/" target="_blank" class="fa fa-facebook"></a>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="business-hours">
+                        <h4 style="text-decoration: underline; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Business hours:</h4>
+                        <p style="font-size: 13px; line-height: 2;">
+                            MONDAY 9 A.M. TO 6 P.M. <br>
+                            TUESDAY 9 A.M. TO 6 P.M. <br>
+                            WEDNESDAY 9 A.M. TO 6 P.M. <br>
+                            THURSDAY 9 A.M. TO 9 P.M. <br>
+                            FRIDAY 9 A.M. TO 9 P.M. <br>
+                            SATURDAY 9 A.M. TO 6 P.M. <br>
+                            SUNDAY 9 A.M. TO 6 P.M.
+                        </p>
+                    </div>
+                  
+
+                </div>
             </div>
         </footer>
     </div>
+
+
+
 
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>

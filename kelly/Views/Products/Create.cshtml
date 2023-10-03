@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
+<body style="background-color: #f1e4bcff;">
 <h1>Create</h1>
 
 <h4>Product</h4>
@@ -35,9 +36,10 @@
 </div>
 
 <div>
-    <a asp-action="Index">Cancel</a>
+    <a style="color:#3c763d;"  asp-action="Index">Cancel</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</body>

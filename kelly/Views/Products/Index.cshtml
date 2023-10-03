@@ -3,17 +3,18 @@
 @{
     ViewData["Title"] = "Products";
 }
-
+<body style="background-color: #f1e4bcff;">
 <h1>Products</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a style="color:black;" asp-action="Create">Create New</a>
 </p>
 
 <form asp-controller="Products" asp-action="Index">
     <p>
-        Category <input type="text" name="SearchString"/>
-        <input type="submit" value="Filter"/>
+            <strong>Category</strong> 
+            <input style="background-color: #3c763d;color: #ffffff;" type="text" name="SearchString" />
+            <input style="background-color: #3c763d;color: #ffffff; border: none;padding: 5px 10px; border-radius: 5px;" type="submit" value="Filter" />
     </p>
 </form>
 <table class="table">
@@ -44,11 +45,12 @@
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                        <a style="color:#3c763d;"  asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                        <a style="color:#3c763d;" asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                        <a style="color:#3c763d;" asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</body>

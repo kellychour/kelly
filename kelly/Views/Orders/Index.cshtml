@@ -3,12 +3,29 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<body style="background-color: #f1e4bcff;">
+<h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">All Orders</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a style="color:black;" asp-action="Create">Create New</a>
 </p>
+<form asp-controller="Orders" asp-action="Index">
+    <p>
+        <strong>Order status </strong>
+        <select style="background-color: #3c763d;color: #ffffff;" name="SearchString">
+            <option value="Requested">Request recieved</option>
+            <option value="Approved">Approved</option>
+            <option value="Awaiting Payment">Payment pending</option>
+            <option value="In Progress">Cooking</option>
+            <option value="Complete">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+
+            <input style="background-color: #3c763d;color: #ffffff; border: none;padding: 5px 10px; border-radius: 5px;" 
+            type="submit" value="Filter" />
+
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -55,11 +72,12 @@
                 @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.OrdersID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrdersID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrdersID">Delete</a>
+                        <a style="color:#3c763d;" asp-action="Edit" asp-route-id="@item.OrdersID">Edit</a> |
+                        <a style="color:#3c763d;" asp-action="Details" asp-route-id="@item.OrdersID">Details</a> |
+                        <a style="color:#3c763d;" asp-action="Delete" asp-route-id="@item.OrdersID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</body>
