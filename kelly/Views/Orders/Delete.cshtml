@@ -51,8 +51,10 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="OrdersID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-            <a style="color:#3c763d;" asp-action="Index">Back to List</a>
+            <input style="background-color:#3c763d;"  type="submit" value="Delete" class="btn btn-danger" /> 
+            <div style="padding-top:20px;">
+                | <a class="custom-button" asp-action="Index">Back to List</a>
+            </div>
     </form>
 </div>
 </body>

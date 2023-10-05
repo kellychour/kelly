@@ -30,10 +30,6 @@ namespace kelly.Models
         
         public kellyUser kellyUser { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
-        
-
-
-
-
+        public string SearchString { get; internal set; }
     }
 }

@@ -45,7 +45,8 @@ checkboxes.forEach((checkbox) => {
             if (checkedCount > 1) {
                 event.target.checked = false;
             }
-        } else if (boxTitle === 'Choose 2 halves') {
+        }
+        else if (boxTitle === 'Choose 2 halves') {
             if (checkedCount > 2) {
                 event.target.checked = false;
             }

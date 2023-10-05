@@ -42,6 +42,8 @@ namespace kelly.Controllers
                 Orders = Orders.Where(s => s.OrderStatus!.Contains(searchString));
             }
 
+
+
             return View(await Orders.ToListAsync());
 
         }

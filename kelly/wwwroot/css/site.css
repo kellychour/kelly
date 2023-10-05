@@ -641,19 +641,19 @@ h1{
 
 
 .sidepanel {
-    height: 100%; /* Specify a height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    height: 100%;
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
     top: 70px;
     left: 0;
-    background-color: #3c763d; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 70px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+    background-color: #3c763d; 
+    overflow-x: hidden; 
+    padding-top: 70px; 
+    transition: 0.5s;
 }
 
-    /* The sidepanel links */
+
     .sidepanel a {
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         padding: 20px 8px 8px 32px;
@@ -664,12 +664,9 @@ h1{
         transition: 0.3s;
     }
 
-        /* When you mouse over the navigation links, change their color */
         .sidepanel a:hover {
             color: white;
         }
-
-    /* Position and style the close button (top right corner) */
     .sidepanel .closebtn {
         position: absolute;
         top: 0;
@@ -677,8 +674,6 @@ h1{
         font-size: 30px;
         margin-left: 50px;
     }
-
-/* Style the button that is used to open the sidepanel */
 .openbtn {
     font-size: 20px;
     cursor: pointer;
