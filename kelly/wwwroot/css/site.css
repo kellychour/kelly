@@ -171,9 +171,9 @@ header ul li a:hover::before
 
 
 /* feedback form */
-.contactcontainer{
-    position:relative;
-    display:flex;
+.contactcontainer {
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -181,6 +181,8 @@ header ul li a:hover::before
     padding: 20px 100px;
     margin-block: 100px;
     margin-bottom: 200px;
+    border: solid;
+    border-color: #736f5d;
 }
 
     .contactcontainer:after {
@@ -191,30 +193,30 @@ header ul li a:hover::before
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-image: url('../lib/pictures/pho-6760890_1280.jpg');
-        filter: blur(2px)
+        background-image: url('../lib/pictures/contact form img.png');
+        filter: blur(1.5px)
     }
 
-h2{
+h2 {
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 10px;
     text-align: center;
-    color: white;
+    color: whitesmoke;
+    background-color: #3c763d;
 }
 
-h2:after{
-    content: '';
-    position:absolute;
-    left:50%;
-    bottom:0;
-    transform: translateX(-50%);
-    height:4px;
-    width: 80px;
-    border-radius: 2px;
-    background-color:#2ecc71; 
-     
-}
+    h2:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 4px;
+        width: 80px;
+        border-radius: 2px;
+        background-color: #3c763d;
+    }
 
 .field{
     width: 100%;
@@ -228,9 +230,10 @@ h2:after{
 
 }
 
-.field:hover{
-    background-color: rgba(255, 255, 255, .5);
-}
+    .field:hover {
+        color: black;
+        background-color: lightgray;
+    }
 
 .field:focus{
     background-color: #fff;
@@ -241,20 +244,20 @@ h2:after{
     min-height: 150px;
 }
 
-.btn{
+.btn {
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 1.1rem;
-    background-color: #2ecc71; 
-    cursor:pointer;
+    background-color: #3c763d;
+    cursor: pointer;
     outline: none;
     border: none;
     transition: .3s;
-    color:#fff;
+    color: #fff;
 }
 
 .btn:hover{
-    background-color: #27ae60;
+    background-color: lightgray;
 }
 
 @media screen and (max-width:880px){

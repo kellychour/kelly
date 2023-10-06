@@ -69,3 +69,22 @@ function closeNav() {
     document.getElementById("mySidepanel").style.width = "0";
 }
 
+$(document).ready(function () {
+    $('#ProductName').on('change', function () {
+        var productName = $(this).val(); // Get the entered product name
+
+        // Make an AJAX request to your server to get the corresponding ProductID
+        $.ajax({
+            url: '/YourController/GetProductID', // Replace with your actual endpoint
+            method: 'POST', // Or 'GET' depending on your implementation
+            data: { productName: productName },
+            success: function (data) {
+                // Update the ProductID select field with the retrieved value
+                $('#ProductID').val(data);
+            },
+            error: function () {
+                // Handle errors if any
+            }
+        });
+    });
+});

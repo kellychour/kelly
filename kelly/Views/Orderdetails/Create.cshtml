@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "Create";
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 }
 <body style="background-color: #f1e4bcff;">
-<h1>Create</h1>
+<h1>Add items to your order</h1>
 
 <h4>OrderDetails</h4>
 <hr />
@@ -33,13 +34,18 @@
             <div class="form-group">
                     <input style="background-color:#3c763d;" type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
+            </form>
+            <div style="padding-top:20px;">
+                <a class="custom-button" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+        
+    <div style="display: flex; height: 550px; width: auto;">
+            <img src="~/lib/pictures/id list.png" />
     </div>
 </div>
 
-    <div style="padding-top:20px;">
-        <a class="custom-button" asp-action="Index">Back to List</a>
-</div>
+    
 </body>
 
 @section Scripts {
