@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<kelly.Models.Orders>
-
 @{
     ViewData["Title"] = "Index";
 }
@@ -42,7 +41,7 @@
                 @Html.DisplayNameFor(model => model.OrderTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PickupTime)
+                @Html.ActionLink("Pickup Time", "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderStatus)

@@ -51,3 +51,4 @@ public class kellyUserEntityConfiguration : IEntityTypeConfiguration<kellyUser>
     }
 
 }
+

@@ -9,6 +9,9 @@ using kelly.Areas.Identity.Data;
 using kelly.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json.Linq;
+using PagedList;
 
 
 namespace kelly.Controllers
@@ -25,8 +28,26 @@ namespace kelly.Controllers
 
 
         // GET: Orders
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, int? page)
         {
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var Orders = from s in _context.Orders
+                         select s;
+            switch (sortOrder)
+            {
+                case "Date":
+                    Orders = Orders.OrderBy(s => s.PickupTime);
+                    break;
+                case "date_desc":
+                    Orders = Orders.OrderByDescending(s => s.PickupTime);
+                    break;
+                default:
+                    Orders = Orders.OrderBy(s => s.OrdersID);
+                    break;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             if (_context.Product == null)
             {
                 return _context.Orders != null ?
@@ -34,8 +55,6 @@ namespace kelly.Controllers
                           Problem("Entity set 'kellyDbContext.Product'  is null.");
             }
 
-            var Orders = from m in _context.Orders
-                         select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -44,7 +63,7 @@ namespace kelly.Controllers
 
 
 
-            return View(await Orders.ToListAsync());
+            return View(Orders);
 
         }
        // public async Task<IActionResult> Index()
