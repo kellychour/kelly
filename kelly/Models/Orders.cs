@@ -27,7 +27,8 @@ namespace kelly.Models
         public DateTime? PickupTime { get; set; }
         [Display(Name = "Status")]
         public string OrderStatus { get; set; } //drop down options for status of orders
-        
+
+        [Display(Name = "User ID")]
         public kellyUser kellyUser { get; set; }
         public ICollection<OrderDetails> OrderDetails { get; set; }
     }
