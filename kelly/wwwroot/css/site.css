@@ -380,21 +380,6 @@ iframe {
 
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 300px;
-    width: 300px;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: lightgray;
-    border-radius: 600px;
-}
-
-.box-img:hover .overlay {
-    opacity: 1;
-}
 
 .text {
     color: white;
