@@ -10,28 +10,28 @@
 <h4>Order Details</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+                <div style="padding-top: 20px;" class="form-group">
                 <label asp-for="OrdersID" class="control-label"></label>
                 <select asp-for="OrdersID" class ="form-control" asp-items="ViewBag.OrdersID"></select>
             </div>
-            <div class="form-group">
+                <div style="padding-top: 20px;" class="form-group">
                 <label asp-for="ProductID" class="control-label"></label>
                 <select asp-for="ProductID" class ="form-control" asp-items="ViewBag.ProductID"></select>
             </div>
-            <div class="form-group">
+                <div style="padding-top: 20px;" class="form-group">
                 <label asp-for="ProductName" class="control-label"></label>
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                <div style="padding-top: 20px;" class="form-group">
                 <label asp-for="Qty" class="control-label"></label>
                 <input asp-for="Qty" class="form-control" />
                 <span asp-validation-for="Qty" class="text-danger"></span>
             </div>
-            <div class="form-group">
+                <div style="padding-top: 20px;" class="form-group">
                     <input style="background-color:#3c763d;" type="submit" value="Create" class="btn btn-primary" />
             </div>
             </form>
@@ -40,7 +40,7 @@
             </div>
         </div>
         
-    <div style="display: flex; height: 550px; width: auto;">
+    <div style="display: flex; padding-left:10%; height: 550px; width: 400px;">
             <img src="~/lib/pictures/id list.png" />
     </div>
 </div>
