@@ -369,8 +369,13 @@ iframe {
 .box-img {
     position: relative;
     color: #f1e4bcff;
+    padding-bottom: 30px;
 
 }
+
+    .box-img:hover {
+        transform: scale(1.2);
+    }
 
 .image {
     display: block;
@@ -675,3 +680,17 @@ h1{
     .openbtn:hover {
         background-color: lightgrey;
     }
+
+.zoom {
+    padding: 50px;
+    background-color: green;
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+    .zoom:hover {
+        transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
