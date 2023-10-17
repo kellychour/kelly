@@ -16,6 +16,8 @@ namespace kelly.Models
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName => $"{FirstName} {LastName}";
 
         [DataType(DataType.DateTime)]
 

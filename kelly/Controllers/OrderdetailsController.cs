@@ -52,9 +52,11 @@ namespace kelly.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID" , "OrdersID");
+
+            ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID" , "FullName");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();
+
         }
 
         // POST: OrderDetails/Create

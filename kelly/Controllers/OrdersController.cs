@@ -102,7 +102,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
+        public async Task<IActionResult> Create([Bind("OrdersID,FirstName,LastName,FullName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
             orders.OrderTime = DateTime.Now;
             orders.OrderStatus = "Pending"; // Makes sure "Pending" is automatically filled out
@@ -145,7 +145,7 @@ namespace kelly.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrdersID,FirstName,LastName,OrderTime,PickupTime,OrderStatus")] Orders orders)
+        public async Task<IActionResult> Edit(int id, [Bind("OrdersID,FirstName,LastName,FullName,OrderTime,PickupTime,OrderStatus")] Orders orders)
         {
             if (id != orders.OrdersID)
             {

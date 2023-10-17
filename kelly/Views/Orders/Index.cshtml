@@ -37,6 +37,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderTime)
             </th>
@@ -61,6 +64,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderTime)
             </td>
