@@ -52,7 +52,7 @@ namespace kelly.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-
+            //changed to display the heading as order name
             ViewData["OrdersID"] = new SelectList(_context.Orders, "OrdersID" , "FullName");
             ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return View();

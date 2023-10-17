@@ -1,8 +1,11 @@
-﻿namespace kelly.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace kelly.Models
 {
     public class Product
     {
         public int ProductID { get; set; }
+        [Display(Name ="Product name")]
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public string? Category { get; set; }
