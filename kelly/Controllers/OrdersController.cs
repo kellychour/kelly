@@ -39,10 +39,10 @@ namespace kelly.Controllers
                     Orders = Orders.OrderBy(s => s.PickupTime);
                     break;
                 case "date_desc":
-                    Orders = Orders.OrderByDescending(s => s.PickupTime);
+                    Orders = Orders.OrderByDescending(s => s.PickupTime); //Sorts the pickup time by descending order
                     break;
                 default:
-                    Orders = Orders.OrderBy(s => s.OrdersID);
+                    Orders = Orders.OrderBy(s => s.OrdersID);  //sets the default order by OrdersID
                     break;
             }
 

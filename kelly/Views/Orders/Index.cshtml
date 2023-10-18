@@ -37,12 +37,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FullName)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderTime)
             </th>
+            <!--Creates an action hyperlink to sort out the order time from descending order-->
             <th>
                     @Html.ActionLink("Pickup Time", "Index", new { sortOrder = ViewBag.DateSortParm }, new {style = "color:#3c763d; "})
             </th>
@@ -55,18 +56,18 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrdersID)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrdersID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FullName)
-                    </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderTime)
             </td>

@@ -36,7 +36,7 @@
                             <span asp-validation-for="PickupTime" class="text-danger"></span>
                         </div>
 
-
+                        <!--Automatically gets the kellyUser ID from the database-->
                         <div style="padding-top: 20px;" class="form-group">
                             <label asp-for="kellyUser" class="control-label"></label>
                             <input asp-for="kellyUser" value=@UserManager.GetUserId(User) id="myTextInputID" readonly class="form-control" />
